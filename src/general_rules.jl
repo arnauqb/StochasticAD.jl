@@ -278,3 +278,9 @@ function Base.getindex(C::AbstractArray, st::StochasticTriple{T, V, FIs}) where 
     end
     return StochasticTriple{T}(value(val), delta(val), Δs)
 end
+
+# one-hot rule
+function OneHotArrays.onehot(index::StochasticAD.StochasticTriple, labels)
+    StochasticAD.propagate(x -> OneHotArrays.onehot(StochasticAD.value(x), labels),
+        index, keep_deltas = Val(true))
+end

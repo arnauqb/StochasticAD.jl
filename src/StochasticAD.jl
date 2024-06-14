@@ -23,6 +23,7 @@ using ChainRulesOverloadGeneration
 using ExprTools
 using ForwardDiff
 using Functors
+using OneHotArrays
 import ChainRulesCore
 # resolve conflicts while this code exists in both.
 const on_new_rule = ChainRulesOverloadGeneration.on_new_rule
